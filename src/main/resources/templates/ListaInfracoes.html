@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width" />
+		<title>Lista de Infracoes</title>
+		<link th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" rel="stylesheet">
+	</head>
+	<body>
+		<div class="card" style="margin: 10px">
+			<div class="card-header">
+				<h1 class="card-title">Lista de Infrações Cadastradas - Gabriellen Vitório</h1>
+			</div>
+			<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Descricao</th>
+							<th>Pontos</th>
+							<th>Valor (R$)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Atirar do veículo objetos ou substâncias</td>
+							<td>4</td>
+							<td>130,16</td>
+						</tr>
+						
+						<tr th:each="infracao : ${infracoes}">
+							<td th:text="${infracao.id}"></td>
+							<td th:text="${infracao.descricao}"></td>
+							<td th:text="${infracao.pontos}"></td>
+							<td th:text="${infracao.valor}"></td>
+						</tr>
+						
+						<tr th:each="infracaoBD: ${infracoesBD}">
+							<td th:text="${infracaoBD.id}"></td>
+							<td th:text="${infracaoBD.descricao}"></td>
+							<td th:text="${infracaoBD.pontos}"></td>
+							<td th:text="${infracaoBD.valor}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
